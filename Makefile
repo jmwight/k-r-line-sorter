@@ -18,5 +18,6 @@ strcpy/strcpy.o: strcpy/strcpy.c strcpy/strcpy.h
 alloc/alloc.o: alloc/alloc.c alloc/alloc.h
 	$(CC) $(DEBUG) -c alloc/alloc.c -o alloc/alloc.o $(ARGS)
 
+.PHONY: clean
 clean:
 	rm main $(OBJS)
