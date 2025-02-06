@@ -1,0 +1,15 @@
+#another way to write Makefile
+OBJ = main.o getaline.o alloc/alloc.o strcpy/strcpy.o
+
+main: $(OBJ)
+	cc -o main $(OBJ)
+main.o: getaline.o alloc/alloc.o strcpy/strcpy.o
+getaline.o: getaline.c getaline.h
+alloc/alloc.o: alloc/alloc.c alloc/alloc.h
+strcpy/strcpy.o: strcpy/strcpy.c strcpy/strcpy.h
+
+.PHONY: clean
+
+clean:
+	rm main $(OBJ)
+
