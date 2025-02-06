@@ -20,4 +20,4 @@ alloc/alloc.o: alloc/alloc.c alloc/alloc.h
 
 .PHONY: clean
 clean:
-	rm main $(OBJS)
+	rm -rf line-sorter $(OBJS)

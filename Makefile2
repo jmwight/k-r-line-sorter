@@ -11,5 +11,5 @@ strcpy/strcpy.o: strcpy/strcpy.c strcpy/strcpy.h
 .PHONY: clean
 
 clean:
-	rm main $(OBJ)
+	rm -rf line-sorter $(OBJ)
 
