@@ -3,8 +3,8 @@ ARGS = -Wall
 OBJS = main.o getaline.o strcpy/strcpy.o alloc/alloc.o
 DEBUG = -g # add -g to make a symbol list so GDB will work. If you don't want it remove the -g from the Makefile
 
-main: $(OBJS)
-	$(CC) $(DEBUG) main.o getaline.o strcpy/strcpy.o alloc/alloc.o -o main $(ARGS)
+line-sorter: $(OBJS)
+	$(CC) $(DEBUG) main.o getaline.o strcpy/strcpy.o alloc/alloc.o -o line-sorter $(ARGS)
 
 main.o: main.c getaline.o strcpy/strcpy.o alloc/alloc.o
 	$(CC) $(DEBUG) -c main.c -o main.o $(ARGS)
