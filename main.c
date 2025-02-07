@@ -7,7 +7,7 @@
 
 #define MAXLINELEN	1024
 
-main()
+int main(void)
 {
 	char *s = calloc(MAXLINELEN, sizeof(char));
 	int i = 0;
