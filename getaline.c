@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /* gets next line and returns it's length */
-int getaline(char *s, int mxlen)
+int getaline(char *s, unsigned int mxlen)
 {
 	int l;
 	for(l = 0; l < mxlen && (*s = getchar()) != EOF && *s != '\n'; ++l, ++s)
