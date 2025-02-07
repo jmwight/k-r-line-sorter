@@ -10,7 +10,7 @@ unsigned int readlines(char *lineptr[], unsigned int maxlines, unsigned int maxl
 	char *p, line[maxline];
 
 	nlines = 0;
-	while((len = getaline(line, maxline)) > 0)
+	while((len = getaline(line, maxline)) > 0 && line[0] != '\n')
 		if(nlines >= maxlines || (p = alloc(len+1)) == NULL)
 			return -1;
 		else
