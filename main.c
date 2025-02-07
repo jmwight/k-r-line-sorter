@@ -24,9 +24,11 @@ main()
 {
 	unsigned int nlines;  //number of input lines read 
 
+	printf("Enter lines to sort below:\n");
 	if((nlines = readlines(lineptr, MAXLINES, MAXLINELEN)) >= 0)
 	{
 		qsortlines(lineptr, 0u, nlines - 1);
+		printf("\n\nSorted lines:\n");
 		writelines(lineptr, nlines);
 		return 0;
 	}
