@@ -11,7 +11,8 @@ int getaline(char *s, unsigned int mxlen)
 		*s = '\0';
 		return EOF;
 	}
-	*s = '\0';
+	*++s = '\0';
+	++l;
 	/* we return -2 to indicate buffer overrun */
 	if(l >= mxlen)
 		return -2;
