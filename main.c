@@ -3,13 +3,13 @@
 #include "alloc/readwritelines.h"
 #include <string.h>
 
-#define MAXLINELEN	1024U
-#define MAXLINES	5120U
+#define MAXLINELEN	1024
+#define MAXLINES	5120
 
 char *lineptr[MAXLINES];
 
-void qsortlines(char *v[], unsigned int left, unsigned int right);
-void swap(char *v[], unsigned int i, unsigned int j);
+void qsortlines(char *v[], int left, int right);
+void swap(char *v[], int i, int j);
 
 /*
 main()
@@ -22,12 +22,12 @@ main()
 
 main()
 {
-	unsigned int nlines;  //number of input lines read 
+	int nlines;  //number of input lines read 
 
 	printf("Enter lines to sort below:\n");
 	if((nlines = readlines(lineptr, MAXLINES, MAXLINELEN)) >= 0)
 	{
-		qsortlines(lineptr, 0u, nlines - 1);
+		qsortlines(lineptr, 0, nlines - 1);
 		printf("\n\nSorted lines:\n");
 		writelines(lineptr, nlines);
 		return 0;
@@ -40,15 +40,15 @@ main()
 }
 
 /* qsortlinesline: sorts array of line pointers based on strcmp lowest to highest */
-void qsortlines(char *v[], unsigned int left, unsigned int right)
+void qsortlines(char *v[], int left, int right)
 {
-	unsigned int i, last;
+	int i, last;
 	
 	if(left >= right) /* do nothing if array contains */
 		return;   /* fewer than two elements */
 	swap(v, left, (left+right)/2);
 	last = left;
-	for(i = left+1; i <= right; i++)
+	for(i = left+1; i <= right; i++) // was i <= right
 		if(strcmp(v[i], v[left]) < 0)
 			swap(v, ++last, i);
 	swap(v, left, last);
@@ -57,7 +57,7 @@ void qsortlines(char *v[], unsigned int left, unsigned int right)
 }
 
 /* swap: swaps v[i] and v[j] */
-void swap(char *v[], unsigned int i, unsigned int j)
+void swap(char *v[], int i, int j)
 {
 	char *temp;
 	temp = v[i];

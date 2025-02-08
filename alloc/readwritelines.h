@@ -1,7 +1,7 @@
 #ifndef READWRITELINES_H
 #define READWRITELINES_H	1
 
-unsigned int readlines(char **lineptr, unsigned int maxlines, unsigned int maxline);
-void writelines(char **lineptr, unsigned int nlines);
+int readlines(char **lineptr, int maxlines, int maxline);
+void writelines(char **lineptr, int nlines);
 
 #endif

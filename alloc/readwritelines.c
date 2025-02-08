@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /* readlines: read input lines into array of pointers */
-unsigned int readlines(char *lineptr[], unsigned int maxlines, unsigned int maxline)
+int readlines(char *lineptr[], int maxlines, int maxline)
 {
 	int len, nlines;
 	char *p, line[maxline];
@@ -24,9 +24,9 @@ unsigned int readlines(char *lineptr[], unsigned int maxlines, unsigned int maxl
 }
 
 /* writelines: write output lines */
-void writelines(char *lineptr[], unsigned int nlines)
+void writelines(char *lineptr[], int nlines)
 {
-	unsigned int i;
+	int i;
 
 	for(i = 0; i < nlines; i++)
 		printf("%s\n", lineptr[i]);
