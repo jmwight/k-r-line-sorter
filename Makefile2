@@ -1,15 +1,14 @@
 #another way to write Makefile
-OBJ = main.o getaline.o alloc/alloc.o strcpy/strcpy.o
+OBJ = main.o getaline.o alloc/alloc.o strcpy/strcpy.o alloc/readwritelines.o
 
 line-sorter: $(OBJ)
 	cc -o line-sorter $(OBJ)
-main.o: getaline.o alloc/alloc.o strcpy/strcpy.o
+main.o: main.c alloc/readwritelines.h
 getaline.o: getaline.c getaline.h
+alloc/readwritelines.o: alloc/readwritelines.c alloc/readwritelines.h alloc/alloc.h strcpy/strcpy.h
 alloc/alloc.o: alloc/alloc.c alloc/alloc.h
 strcpy/strcpy.o: strcpy/strcpy.c strcpy/strcpy.h
 
 .PHONY: clean
-
 clean:
 	rm -rf line-sorter $(OBJ)
-
