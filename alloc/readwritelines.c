@@ -6,8 +6,8 @@
 /* readlines: read input lines into array of pointers */
 int readlines(char *lineptr[], char *linemem, int linememsize, int maxlines, int maxline)
 {
-	int nlines;
-	while((len = getaline(linemem, maxline > linememsize ? linememsize : maxline)) > 0 && *linemem != '\n')
+	int nlines, len;
+	while((len = getaline(linemem, maxline > linememsize ? linememsize : maxline)) > 0 && *linemem != '\n', nlines < maxline)
 	{
 		linememsize -= len + 1;
 		linemem += len + 1;
