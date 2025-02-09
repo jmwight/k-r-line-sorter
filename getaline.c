@@ -4,8 +4,9 @@
 int getaline(char *s, int mxlen)
 {
 	int l;
-	for(l = 0; l < mxlen && (*s = getchar()) != EOF && *s != '\n'; ++l, ++s)
+	for(l = 0; l < mxlen - 1 && (*s = getchar()) != EOF && *s != '\n'; ++l, ++s)
 		;
+
 	if(*s == EOF)
 		*s = '\0';
 	else
@@ -16,7 +17,10 @@ int getaline(char *s, int mxlen)
 
 	/* we return -2 to indicate buffer overrun */
 	if(l >= mxlen)
+	{
+		printf("Error: line longer than maximum");
 		return -2;
+	}
 	else
 		return l;
 }
