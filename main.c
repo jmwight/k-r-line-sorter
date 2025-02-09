@@ -11,15 +11,6 @@ char *lineptr[MAXLINES];
 void qsortlines(char *v[], int left, int right);
 void swap(char *v[], int i, int j);
 
-/*
-main()
-{
-	int i;
-	char s[MAXLINELEN];
-	getaline(s, MAXLINELEN);
-	printf("\n%s\n", s);
-}*/
-
 int main(void)
 {
 	int nlines;  //number of input lines read 
