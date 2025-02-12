@@ -13,6 +13,8 @@ int readlines(char *lineptr[], char *linemem, int linememsize, int maxlines, int
 		linemem += len + 1;
 		++nlines;
 	}
+
+	return nlines;
 }
 
 /* writelines: write output lines */
