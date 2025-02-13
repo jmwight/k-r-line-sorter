@@ -9,15 +9,16 @@ int getaline(char *s, int mxlen)
 
 	if(*s == EOF)
 		*s = '\0';
-	else
+	else if(*s == '\n')
 	{
 		*++s = '\0';
 		++l;
 	}
 
 	/* we return -2 to indicate buffer overrun */
-	if(l >= mxlen)
+	if(l == mxlen - 1)
 	{
+		*++s = '\0';
 		printf("Error: line longer than maximum");
 		return -2;
 	}
