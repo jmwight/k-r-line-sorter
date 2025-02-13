@@ -14,13 +14,15 @@ void swap(char *v[], int i, int j);
 int main(void)
 {
 	int nlines;  //number of input lines read 
+	int usec;
 
 	printf("Enter lines to sort below:\n");
-	if((nlines = readlines(lineptr, MAXLINES, MAXLINELEN)) >= 0)
+	if((nlines = readlines(lineptr, MAXLINES, MAXLINELEN, &usec)) >= 0)
 	{
 		qsortlines(lineptr, 0, nlines - 1);
 		printf("\n\nSorted lines:\n");
 		writelines(lineptr, nlines);
+		printf("Readlines time:\t%dus\n", usec);
 		return 0;
 	}
 	else
