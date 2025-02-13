@@ -8,13 +8,15 @@ int readlines(char *lineptr[], char *linemem, int linememsize, int maxlines, int
 {
 	int nlines, len, i;
 	nlines = i = 0;
-	while((len = getaline(linemem, maxline > linememsize ? linememsize : maxline)) > 0 && *linemem != '\n', nlines < maxline)
+	while((len = getaline(linemem, maxline > linememsize ? linememsize : maxline)) > 0 && *linemem != '\n' && nlines < maxline)
 	{
-		linememsize -= len + 1;
 		lineptr[i++] = linemem; // set line pointer
 		if(linemem[len - 1] == '\n') // remove \n if it has it and reduce length accordingly
 			linemem[--len] = '\0';
+		else if(linemem[len - 1] == EOF)
+			linemem[--len] = '\0';
 		linemem += len + 1; // len + 1 because length of line doesn't include '\0' at the end 
+		linememsize -= len + 1;
 		++nlines;
 	}
 
